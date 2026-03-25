@@ -13,7 +13,7 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: "GEMINI_API_KEY not configured on server" });
   }
 
-  const MODEL = "gemini-1.5-flash"; // Stable version
+  const MODEL = "gemini-2.0-flash"; // Latest stable version
   const ENDPOINT = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${GEMINI_KEY}`;
 
   const body = JSON.stringify(req.body);
