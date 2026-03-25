@@ -286,10 +286,7 @@
 
     if (currentMode === "image") { handleImageGen(); return; }
 
-    if (!GEMINI_KEY || GEMINI_KEY === "your_gemini_api_key_here") {
-      appendError("Gemini API key not configured. Please update config.js.");
-      return;
-    }
+
 
     const t = now();
     userInput.value = "";
@@ -366,10 +363,7 @@
       return;
     }
 
-    if (!HF_KEY || HF_KEY === "your_huggingface_api_key_here") {
-      appendError("Hugging Face API key not configured. Please update config.js with your HF_API_KEY.");
-      return;
-    }
+
 
     const t = now();
     userInput.value = "";

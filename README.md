@@ -22,21 +22,15 @@ Add the following keys in your Vercel Project Settings -> Environment Variables:
 
 ### 2. Local Development
 ```bash
-# Install dependencies (none required for vanilla, but for serverless functions):
-npm install
-
 # Run the local server:
 node server.js
 ```
 
 ### 3. Push to GitHub
 ```bash
-git init
 git add .
 git commit -m "Initialize TapBoT"
-git branch -M main
-git remote add origin https://github.com/zaheer-zee/TapBoT.git
-git push -u origin main
+git push origin main
 ```
 
 ---
