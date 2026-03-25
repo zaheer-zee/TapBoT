@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TapBoT — AI Intelligence Platform</title>
+  <meta name="description" content="TapBoT is a premium AI chatbot powered by Google Gemini for intelligent conversations and FLUX.1-SCHNELL for instant image generation." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="config.js"></script>
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="brand">
+        <div class="brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="#FF4500" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M2 17l10 5 10-5" stroke="#FF4500" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M2 12l10 5 10-5" stroke="#FF4500" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="brand-name">TapBoT</span>
+      </div>
+      <button class="sidebar-toggle" id="sidebarToggle" title="Collapse sidebar">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+    </div>
+
+    <div class="sidebar-section">
+      <span class="sidebar-label">SESSIONS</span>
+      <button class="new-chat-btn" id="newChatBtn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+        New Session
+      </button>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-item active" id="navChat">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+        <span>Chat</span>
+      </div>
+      <div class="nav-item" id="navImage">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="18" height="18"></rect>
+          <circle cx="8.5" cy="8.5" r="1.5"></circle>
+          <polyline points="21 15 16 10 5 21"></polyline>
+        </svg>
+        <span>Image Gen</span>
+      </div>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="model-indicator">
+        <div class="status-dot"></div>
+        <div>
+          <div class="model-name">gemini-2.5-flash</div>
+          <div class="model-sub">Text · FLUX.1-schnell</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main" id="main">
+
+    <!-- TOP BAR -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+        <div class="topbar-title" id="topbarTitle">AI Chat</div>
+      </div>
+      <div class="topbar-right">
+        <div class="mode-switcher" id="modeSwitcher">
+          <button class="mode-btn active" data-mode="chat" id="modeChatBtn">Chat</button>
+          <button class="mode-btn" data-mode="image" id="modeImageBtn">Image</button>
+        </div>
+        <button class="clear-btn" id="clearBtn" title="Clear conversation">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="3 6 5 6 21 6"></polyline>
+            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- CHAT AREA -->
+    <section class="chat-area" id="chatArea">
+
+      <!-- Welcome screen -->
+      <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="#FF4500" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M2 17l10 5 10-5" stroke="#FF4500" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M2 12l10 5 10-5" stroke="#FF4500" stroke-width="1.5" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h1 class="welcome-title">TapBoT</h1>
+        <p class="welcome-sub">Powered by Gemini AI &amp; FLUX.1-schnell</p>
+        <div class="welcome-chips">
+          <button class="chip" data-prompt="Explain quantum computing in simple terms">Explain quantum computing</button>
+          <button class="chip" data-prompt="Write a Python function to sort a list">Write a Python function</button>
+          <button class="chip" data-prompt="What are the latest trends in AI?">AI trends 2025</button>
+          <button class="chip" data-prompt="Draft a professional email declining a meeting">Draft a professional email</button>
+        </div>
+      </div>
+
+      <!-- Messages container -->
+      <div class="messages-container" id="messagesContainer"></div>
+    </section>
+
+    <!-- INPUT AREA -->
+    <footer class="input-area" id="inputArea">
+      <div class="input-wrapper">
+        <div class="input-box">
+          <textarea
+            id="userInput"
+            class="user-input"
+            placeholder="Message TapBoT..."
+            rows="1"
+            maxlength="4000"
+          ></textarea>
+          <div class="input-actions">
+            <span class="char-count" id="charCount">0 / 4000</span>
+            <button class="img-gen-btn" id="imgGenBtn" title="Generate Image from prompt">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18"></rect>
+                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                <polyline points="21 15 16 10 5 21"></polyline>
+              </svg>
+              <span>Generate Image</span>
+            </button>
+            <button class="send-btn" id="sendBtn" title="Send message">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="input-hint">TapBoT can make mistakes — verify important information.</div>
+      </div>
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
