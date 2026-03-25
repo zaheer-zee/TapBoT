@@ -8,10 +8,6 @@
   "use strict";
 
   // ------- CONFIG -------
-  const ENV = window.__ENV__ || {};
-  const GEMINI_KEY = ENV.GEMINI_API_KEY || "";
-  const HF_KEY = ENV.HF_API_KEY || "";
-
   const CHAT_PROXY = "/api/chat";
   const FLUX_PROXY = "/api/generate-image";
 
@@ -444,14 +440,8 @@
     }
   }
 
-  // ------- API KEY CHECK on load -------
+  // ------- INIT -------
   window.addEventListener("DOMContentLoaded", () => {
-    if (!GEMINI_KEY || GEMINI_KEY === "your_gemini_api_key_here") {
-      console.warn("[TapBoT] Gemini API key not set in config.js");
-    }
-    if (!HF_KEY || HF_KEY === "your_huggingface_api_key_here") {
-      console.warn("[TapBoT] Hugging Face API key not set in config.js");
-    }
     userInput.focus();
   });
 
